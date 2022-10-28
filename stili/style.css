@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100&family=Montserrat:wght@200&display=swap');body{
+    font-family: 'Montserrat', sans-serif;
+    background-color: #e0e0e0;
+}
+.container{
+    display: flex;
+    position:absolute;
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    left: 5%;
+    flex-direction: column;
+}
+.saluto{
+    padding-left: 5px;
+}
+.riclassificato{
+    padding: 10px;
+    border-radius: 50px;
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow:  20px 20px 60px #bebebe,
+                 -20px -20px 60px #ffffff;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+.riclassificato{
+    flex: 1;
+    text-align: center;
+    align-items: center;
+    padding-left:10%;
+    padding-right:10%;
+}
+table{
+   border: 1px solid black;
+   width: 100%;
+   text-align: left;
+   font-weight: bolder;
+}
+th,td{
+    border: 1px black solid;
+    padding: 10px;
+}
+
+.btn{
+
+font-family: Roboto, sans-serif;
+font-weight: 0;
+font-size: 14px;
+color: #fff;
+background-color: #0066CC;
+padding: 10px 30px;
+border: 2px solid #0066cc;
+box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+border-radius: 50px;
+transition : 1000ms;
+transform: translateY(0);
+display: flex;
+flex-direction: row;
+align-items: center;
+cursor: pointer;
+}
+
+.btn:hover{
+transition : 500ms;
+padding: 10px 50px;
+transform : translateY(-0px);
+background-color: #fff;
+color: #0066cc;
+border: solid 2px #0066cc;
+}
+.utili{
+    padding: 10px;
+    flex: 1;
+}
+.pag2{
+    visibility: hidden;
+}

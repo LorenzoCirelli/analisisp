@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="framework/aos.css" rel="stylesheet">
+    <script src="framework/aos.js"></script>
+    <link rel="stylesheet" href="stili/style.css">
+    <title>Stato finanziario</title>
+</head>
+<body>
+<!--pagina 1-->
+    <div class="container" id="dipinto">
+        <h1 class="saluto">ANALISI DI BILANCIO</h1>
+        <br>
+<div data-aos="zoom-in-up" class="riclassificato">
+    <h2>Bilancio Riclassificato</h2>
+    <!--A indentifica il valore macroclasse, B il valore della singola voce-->
+    <table>
+        <tr>
+            <th>IMPIEGHI</th>
+            <th>VALORE</th>
+            <th>%</th>
+            <th>FONTI</th>
+            <th>VALORE</th>
+            <th>%</th>
+        </tr>
+        <tr>
+            <td>ATTIVO CIRCOLANTE</td>
+            <td contenteditable="false" id="A1"></td>
+            <td id="AT1"></td>
+            <td>CAPITALE DI TERZI</td>
+            <td contenteditable="false" id="AA1"></td>
+            <td id="CP1"></td>
+        </tr>
+        <tr>
+            <td>Disponibilità liquide</td>
+            <td contenteditable="true" onkeyup="attcirc()" id="B1"></td>
+            <td></td>
+            <td>Debiti a breve</td>
+            <td contenteditable="true" onkeyup="capterz()" id="BB1"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Disponibilità finanziarie</td>
+            <td contenteditable="true" id="B2" onkeyup="attcirc()"></td>
+            <td></td>
+            <td>Debiti a medio/lungo</td>
+            <td contenteditable="true" onkeyup="capterz()" id="BB2"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Rimanenze</td>
+            <td contenteditable="true" id="B3" onkeyup="attcirc()"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td>ATTIVO IMMOBILIZZATO</td>
+            <td contenteditable="false" id="A2"></td>
+            <td id="AT2"></td>
+            <td>CAPITALE PROPRIO</td>
+            <td contenteditable="true" id="AA2" onkeyup="totfonti()"></td>
+            <td id="CP2"></td>
+        </tr>
+        <tr>
+            <td>Immobilizzazioni immateriali</td>
+            <td contenteditable="true" id="B4" onkeyup="attimm()"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Immobilizzazioni materiali</td>
+            <td contenteditable="true" id="B5" onkeyup="attimm()"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Immobilizzazioni finanziarie</td>
+            <td contenteditable="true" id="B6" onkeyup="attimm()"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>TOTALE IMPIEGHI</td>
+            <td contenteditable="false" id="r1"></td>
+            <td></td>
+            <td>TOTALE FONTI</td>
+            <td contenteditable="false" id="r2"></td>
+            <td></td>
+        </tr>
+    </table>
+    <div class="utili">
+<button onclick="dopo()" class="btn">ANALIZZA</button>    
+</div>  
+</div>
+    </div>
+<!--pagina 2-->
+<div class="pag2">
+    <h1>RISULTATO DELL'ANALISI</h1>
+<div class="line">
+    <div class="contelem">
+    <div class="elem" data-aos="zoom-in">
+        IMPIEGHI
+        <br>
+        <ul>
+            <li id="elast"></li>
+            <li id="rigid"></li>
+        </ul>
+    <div class="progress" id="graphimpieghi">
+       
+    </div>
+    </div>    
+    </div>
+    <div class="contelem">
+    <div class="elem" data-aos="zoom-in">FONTI
+        <br>
+        <ul>
+            <li id="terzo"></li>
+            <li id="primo"></li>
+        </ul>
+    <div class="progress" id="graphfonti">
+       
+    </div>
+    </div>    
+    </div>
+    <div class="contelem">
+    <div class="elem" data-aos="zoom-in">
+        LEVERAGE
+        <h1 id="lev"></h1>
+    </div>    
+    </div>
+</div>
+<div class="line">
+    <div class="contelem">
+    <div class="elem" data-aos="zoom-in">MARGINE DI STRUTTURA
+        <h2 id="strutt"></h2>
+    </div>    
+    </div>
+    <div class="contelem">
+    <div class="elem" >MARGINE DI COPERTURA GLOBALE
+        <h2 id="coper"></h2>
+    </div>    
+    </div>
+    <div class="contelem">
+    <div class="elem">PCN
+        <h2 id="pcn"></h2>
+    </div>    
+    </div>
+</div>
+<div class="line">
+    <div class="contelem">
+    <div class="elem">MARGINE DI TESORERIA
+        <h2 id="tesor"></h2>
+    </div>
+    </div>
+    <div class="contelem">
+    <div class="elem">INDICE LIQUIDITA' PRIMARIA
+        <h1 id="indprim"></h1>
+    </div>
+    </div>
+    <div class="contelem">
+        <div class="elem">INDICE LIQUIDITA' SECONDARIA
+            <h1 id="indsec"></h1>
+        </div>
+    </div>
+</div>
+<div class="line">
+    <div class="contelem">
+    <div class="elem">COMMENTO
+        <p id="commento"></p>
+    </div>
+    </div>
+    </div>
+</div>
+    <script src="script/tabella1.js"></script>
+    <script src="script/pagina2.js"></script>
+    <script>
+        AOS.init();
+      </script>
+</body>
+</html>
