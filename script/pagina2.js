@@ -17,8 +17,8 @@ function caricadati(){
     //indici fonti
     document.getElementById("terzo").innerText= ((CT/TF)*100).toFixed(2) + "% terzi";
     document.getElementById("primo").innerText= ((CP/TF)*100).toFixed(2) + "% proprio";
-    let terzi = document.getElementById("terzo").innerText= ((CT/TF)*100).toFixed(2);
-    let proprio = document.getElementById("primo").innerText= ((CP/TF)*100).toFixed(2);
+    let terzi = ((CT/TF)*100).toFixed(2);
+    let proprio = ((CP/TF)*100).toFixed(2);
     document.getElementById("graphfonti").innerHTML = ' <div class="elastico" style="width:'+((CT/TF)*100).toFixed(2)+'%"></div>'
     //leverage
     let lev = document.getElementById("lev").innerText= (TI/CP).toFixed(2);
